@@ -117,7 +117,7 @@ const AddUser = (props) => {
                         />
                         {user?.email && !validateEmail(user?.email) ?
                             (<div className="error-input danger">Please provide a valid email</div>) : null}
-                        {user?.email.length === 0 && submitted ?
+                        {user?.email && submitted ?
                             (<div className="error-input danger">Email is Required</div>) : null}
                     </div>
 
