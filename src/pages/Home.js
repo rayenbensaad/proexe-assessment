@@ -1,27 +1,19 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTable, useSortBy } from "react-table";
-import { removeUser } from "../redux/actions/users";
 import { openModal } from "../redux/actions/modal";
 import {
   Button,
   Card,
   CardBody,
-  CardSubtitle,
   CardText,
   CardTitle,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
 } from "reactstrap";
 import ModalDelete from "../components/ModalDelete";
 
 const Home = (props) => {
   const { users } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(false);
   const [id, setId] = useState(null);
 
   useEffect((props) => {

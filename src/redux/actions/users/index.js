@@ -1,7 +1,7 @@
 // ** UseJWT import to get config
 import UserService from "../../../services/users"
 import { SET_MESSAGE } from "../message/type";
-import { CREATE_USER_FAIL, CREATE_USER_SUCCESS, DELETE_USER_FAIL, DELETE_USER_SUCCESS, LIST_USER_FAIL, LIST_USER_SUCCESS, UPDATE_USER_SUCCESS } from "./type";
+import { CREATE_USER_SUCCESS, DELETE_USER_SUCCESS, LIST_USER_FAIL, LIST_USER_SUCCESS, UPDATE_USER_SUCCESS } from "./type";
 
 export const listUsers = () => (dispatch) => {
   return UserService.list().then(
@@ -65,7 +65,7 @@ export const removeUser = (id) => (dispatch) => {
 
     dispatch({
       type: SET_MESSAGE,
-      payload: 'User deleted succeffuly'
+      payload: ''
     })
   }
 }

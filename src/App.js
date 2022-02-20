@@ -12,7 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
-import AddUser from './pages/AddUser';
+import User from './pages/User';
 import { listUsers } from "./redux/actions/users";
 
 
@@ -28,12 +28,12 @@ function App() {
     <Router history={history}>
       <Fragment>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/"} className="navbar-brand">
+          <Link to={"/users"} className="navbar-brand">
             Proexe
           </Link>
 
-          <Link to={"/home"} className="nav-link">
-                Home
+          <Link to={"/users"} className="nav-link">
+                Users
           </Link>
           
           
@@ -41,8 +41,8 @@ function App() {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/add-user" component={AddUser} />
+            <Route exact path="/users" component={Home} />
+            <Route exact path="/add-user" component={User} />
           </Switch>
         </div>
 

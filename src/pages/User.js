@@ -4,7 +4,7 @@ import { createUser, updateUser } from '../redux/actions/users'
 import { Button, Label, Input, Card, CardBody, CardTitle, CardText } from 'reactstrap'
 import { Redirect } from 'react-router-dom';
 
-const AddUser = (props) => {
+const User = (props) => {
     const dispatch = useDispatch();
     const { users } = useSelector((state) => state.user);
     // console.log(window.location.search.split('=')[1]);
@@ -47,7 +47,6 @@ const AddUser = (props) => {
     const saveUser = () => {
         console.log(user);
         const data = {
-            id: users?.length +1,
             name: user.name,
             email: user.email,
         }
@@ -55,7 +54,7 @@ const AddUser = (props) => {
         if(validateEmail(user.email) && user.email !== '' && user.name !== ''){
 
             dispatch(updateUser(data, userID))
-            props.history.push("/home")
+            props.history.push("/users")
         }
     };
 
@@ -63,29 +62,26 @@ const AddUser = (props) => {
         console.log(user);
         const data = {
             id: users?.length +1,
-            name: user.name,
-            email: user.email,
+            name: user?.name,
+            email: user?.email,
         }
         setSubmitted(true)
-        if(validateEmail(user.email) && user.email !== '' && user.name !== ''){
+        if(validateEmail(user?.email) && user?.email && user?.name ){
 
             dispatch(createUser(data))
-            props.history.push("/home")
+            props.history.push("/users")
         }
     };
 
     return (
         <div>
         <h3> Dashboard</h3>
-        {user?.email}
         <Card color="light">
           <CardBody>
             <CardTitle tag="h5">
                 Form
             </CardTitle>
             <CardText>
-        <div className="submit-form">
-
                 <div>
                     <div className="form-group">
                         <label htmlFor="title">Name</label>
@@ -100,7 +96,7 @@ const AddUser = (props) => {
                         />
                         {user?.name.length < 3 && user?.name.length !== 0 ?
                             (<div className="error-input mt-2">Please provide a valid Name ( min 3 characters )</div>) : null}
-                        {user?.name.length === 0 && submitted ?
+                        {user?.name === undefined && submitted ?
                             (<div className="error-input danger">Name is Required</div>) : null}
                     </div>
 
@@ -117,7 +113,7 @@ const AddUser = (props) => {
                         />
                         {user?.email && !validateEmail(user?.email) ?
                             (<div className="error-input danger">Please provide a valid email</div>) : null}
-                        {user?.email && submitted ?
+                        {user?.email === undefined && submitted ?
                             (<div className="error-input danger">Email is Required</div>) : null}
                     </div>
 
@@ -138,7 +134,6 @@ const AddUser = (props) => {
                         </div>
                     )}
                 </div>
-        </div>
         </CardText>
         </CardBody>
       </Card>
@@ -146,4 +141,4 @@ const AddUser = (props) => {
     );
 };
 
-export default AddUser;
+export default User;
