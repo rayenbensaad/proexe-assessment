@@ -28,11 +28,11 @@ function App() {
     <Router history={history}>
       <Fragment>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/users"} className="navbar-brand">
+          <Link to={"/"} className="navbar-brand">
             Proexe
           </Link>
 
-          <Link to={"/users"} className="nav-link">
+          <Link to={"/"} className="nav-link">
                 Users
           </Link>
           
@@ -41,7 +41,7 @@ function App() {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path="/users" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/add-user" component={User} />
           </Switch>
         </div>

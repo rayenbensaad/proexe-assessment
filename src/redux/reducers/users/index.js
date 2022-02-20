@@ -27,7 +27,6 @@ const userReducer = (state = initialState, action) => {
         ...state,
       };
     case CREATE_USER_SUCCESS:
-      console.log(payload, ...state.users);
       return {
         ...state,
         users: [...state.users, payload],
@@ -46,11 +45,9 @@ const userReducer = (state = initialState, action) => {
         ...state,
       };
     case UPDATE_USER_SUCCESS:
-      console.log(payload, 'edit customer paylaod',)
       return {
         ...state,
         users: state.users.map((user) => {
-          console.log(user.id === parseInt(payload.userID), "dddddddddddd");
           if (user.id === parseInt(payload.userID)) {
             return {
               ...user,

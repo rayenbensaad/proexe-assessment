@@ -104,7 +104,6 @@ const Home = (props) => {
                         <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                           {column.render("Header")}
                           <span>
-                            {console.log(column)}
                             {column.isSorted
                               ? column.isSortedDesc
                                 ? '▼'

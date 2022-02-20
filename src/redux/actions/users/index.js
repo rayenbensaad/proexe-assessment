@@ -6,7 +6,6 @@ import { CREATE_USER_SUCCESS, DELETE_USER_SUCCESS, LIST_USER_FAIL, LIST_USER_SUC
 export const listUsers = () => (dispatch) => {
   return UserService.list().then(
     (response) => {
-      console.log(response, 'ree');
       dispatch({
         type: LIST_USER_SUCCESS,
         payload: response
@@ -57,7 +56,6 @@ export const createUser = (data) => (dispatch) => {
 
 export const removeUser = (id) => (dispatch) => {
   if(id){
-    console.log(id, 'delete');
     dispatch({
       type: DELETE_USER_SUCCESS,
       payload: id
@@ -71,7 +69,6 @@ export const removeUser = (id) => (dispatch) => {
 }
 
 export const updateUser = (data, userID) => (dispatch) => {
-  console.log(data, userID);
   if(data){
     dispatch({
       type: UPDATE_USER_SUCCESS,

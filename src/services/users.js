@@ -5,7 +5,6 @@ const list = () => {
   return http
     .get("data")
     .then((response) => {
-      console.log(response)
       return response.data
     })
 }

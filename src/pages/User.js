@@ -24,7 +24,6 @@ const User = (props) => {
 
     useEffect(() => {
         setUser(users.filter(({ id }) => id === parseInt(userID))[0])
-        console.log(users.filter(({ id }) => id === parseInt(userID)));
         // if (!currentUser) {
         //   return <Redirect to="/login" />;
         // }    
@@ -45,7 +44,6 @@ const User = (props) => {
     };
 
     const saveUser = () => {
-        console.log(user);
         const data = {
             name: user.name,
             email: user.email,
@@ -54,12 +52,11 @@ const User = (props) => {
         if(validateEmail(user.email) && user.email !== '' && user.name !== ''){
 
             dispatch(updateUser(data, userID))
-            props.history.push("/users")
+            props.history.push("/")
         }
     };
 
     const submitUser = () => {
-        console.log(user);
         const data = {
             id: users?.length +1,
             name: user?.name,
@@ -69,7 +66,7 @@ const User = (props) => {
         if(validateEmail(user?.email) && user?.email && user?.name ){
 
             dispatch(createUser(data))
-            props.history.push("/users")
+            props.history.push("/")
         }
     };
 
